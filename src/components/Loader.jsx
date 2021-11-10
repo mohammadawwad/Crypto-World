@@ -8,5 +8,5 @@ const Loader = () => {
         </div>
     )
 }
-
+//test
 export default Loader;
