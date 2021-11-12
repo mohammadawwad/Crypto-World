@@ -96,7 +96,7 @@ const CryptoDetails = () => {
               <a href={link.url} target="_blank" rel="noreferrer">{link.name}</a>
             </Row>
           ))}
-        </Col>
+        </Col> 
       </Col>
     </Col>
   );

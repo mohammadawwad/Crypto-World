@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import {Select, Typography, Row, Col, Avatar, Card} from 'antd';
 import {useGetNewsQuery} from '../services/newsApi';
 import moment from 'moment';
-import { useGetCryptoNewsQuery } from '../services/newsApi';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import Loader from './Loader';
 
@@ -15,7 +14,6 @@ export const News = ({simplified}) => {
     const {data: cryptoNews} = useGetNewsQuery({newsCatagory, count: simplified ? 6 : 12});
     const {data} = useGetCryptosQuery(100);
 
-    console.log(cryptoNews);
     if(!cryptoNews?.value) return <Loader/>;
 
     return (
