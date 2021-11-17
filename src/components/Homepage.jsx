@@ -3,7 +3,7 @@ import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
 import {useGetCryptosQuery} from '../services/cryptoApi';
-import {Cryptocurrencies, News} from '../components';
+import {Cryptocurrencies, News, Notifications} from '../components';
 import Loader from './Loader';
 
 const {Title} = Typography
@@ -16,6 +16,7 @@ export const Homepage = () => {
 
     return (
         <>
+        <Notifications />
         <Title level={2} className="heading">Global Crypto Stats</Title>
         <Row>
             {/* Millify simplifies the numbers */}
