@@ -85,12 +85,13 @@ const Notifications = ({simplified}) => {
 
   if (isFetching) return <Loader />;
 
-  const maxChange = new Map();
+  const percentChange = new Map();
+
   const maxName = new Map();
   const maxId = new Map();
-//   let cryptoName = new Map([...maxChange.entries()].map(
-//     ([key, value]) => ([value, key]))
-//   );
+
+  const minName = new Map();
+  const minId = new Map();
 
   var green = {
     backgroundColor: 'green',
@@ -104,37 +105,57 @@ const Notifications = ({simplified}) => {
   let currenciesIncrease;
   let currenciesIncreaseName;
 
+  let currenciesNeg;
+  let currenciesDecrease;
+  let currenciesDecreaseName;
+
   return (
     <>
  
         {cryptos?.map((currency) => (
-            maxChange.set(currency.name, currency.change),
-            console.log(maxChange),
+            percentChange.set(currency.symbol, currency.change),
+            console.log(percentChange),
 
-            maxName.set(currency.change, currency.name),
+            //positive notification
+            maxName.set(currency.change, currency.symbol),
             maxId.set(currency.change, currency.id),
-            console.log(maxId),
             
-            currenciesIncrease = Math.max(...maxChange.values()),
+            currenciesIncrease = Math.max(...percentChange.values()),
             console.log("currencies Icrease " + currenciesIncrease),
     
-            currenciesIncreaseName = maxName.get(Math.max(...maxChange.values())),
+            currenciesIncreaseName = maxName.get(Math.max(...percentChange.values())),
             console.log("currencies Increase Name " + currenciesIncreaseName),
 
-            currenciesPos = maxId.get(Math.max(...maxChange.values())),
+            currenciesPos = maxId.get(Math.max(...percentChange.values())),
             console.log("test1 " + currenciesPos),
-            console.log("test2 " + currency.id)
+
+            //negative notification
+            minName.set(currency.change, currency.symbol),
+            minId.set(currency.change, currency.id),
+            
+            currenciesDecrease = Math.min(...percentChange.values()),
+            console.log("currencies Decrease " + currenciesDecrease),
+    
+            currenciesDecreaseName = minName.get(Math.min(...percentChange.values())),
+            console.log("currencies Decrease Name " + currenciesDecreaseName),
+
+            currenciesNeg = minId.get(Math.min(...percentChange.values())),
+            console.log("test1 " + currenciesNeg)
         ))} 
 
        
-             {/* <div className="notification" style={red} hoverable>
-                 {test.get(Math.min(...maxChange.values()))} {Math.min(...maxChange.values())}%
-             </div> */}
+ 
 
 
             <Link key={currenciesPos} to={`/crypto/${currenciesPos}`}>
                 <div className="notification" style={green} hoverable>
                     {currenciesIncreaseName} {currenciesIncrease}%
+                </div>
+            </Link>
+
+            <Link key={currenciesNeg} to={`/crypto/${currenciesNeg}`}>
+                <div className="notification" style={red} hoverable>
+                    {currenciesDecreaseName} {currenciesDecrease}%
                 </div>
             </Link>
 

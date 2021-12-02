@@ -31,12 +31,21 @@ const CryptoDetails = () => {
     { title: 'All-time-high(daily avg.)', value: `$ ${millify(cryptoDetails.allTimeHigh.price)}`, icon: <TrophyOutlined /> },
   ];
 
+  let circulating;
+  if(cryptoDetails.circulatingSupply > 0){
+    console.log("TRUEEEEEEEEEE");
+    circulating = millify(cryptoDetails.circulatingSupply);
+  }
+  else{
+    console.log("FALSEEEEEEEEE");
+    circulating = 0;
+  }
   const genericStats = [
     { title: 'Number Of Markets', value: cryptoDetails.numberOfMarkets, icon: <FundOutlined /> },
     { title: 'Number Of Exchanges', value: cryptoDetails.numberOfExchanges, icon: <MoneyCollectOutlined /> },
     { title: 'Aprroved Supply', value: cryptoDetails.approvedSupply ? <CheckOutlined /> : <StopOutlined />, icon: <ExclamationCircleOutlined /> },
     { title: 'Total Supply', value: `$ ${millify(cryptoDetails.totalSupply)}`, icon: <ExclamationCircleOutlined /> },
-    { title: 'Circulating Supply', value: `$ ${millify(cryptoDetails.circulatingSupply)}`, icon: <ExclamationCircleOutlined /> },
+    { title: 'Circulating Supply', value: `$ ${circulating}`, icon: <ExclamationCircleOutlined /> },
   ];
 
   return (
