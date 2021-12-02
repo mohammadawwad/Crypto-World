@@ -86,10 +86,11 @@ const Notifications = ({simplified}) => {
   if (isFetching) return <Loader />;
 
   const maxChange = new Map();
-  const test = new Map();
-  let cryptoName = new Map([...maxChange.entries()].map(
-    ([key, value]) => ([value, key]))
-  );
+  const maxName = new Map();
+  const maxId = new Map();
+//   let cryptoName = new Map([...maxChange.entries()].map(
+//     ([key, value]) => ([value, key]))
+//   );
 
   var green = {
     backgroundColor: 'green',
@@ -99,6 +100,9 @@ const Notifications = ({simplified}) => {
     marginTop: '60px',
   };
 
+  let currenciesPos;
+  let currenciesIncrease;
+  let currenciesIncreaseName;
 
   return (
     <>
@@ -106,19 +110,33 @@ const Notifications = ({simplified}) => {
         {cryptos?.map((currency) => (
             maxChange.set(currency.name, currency.change),
             console.log(maxChange),
-            test.set(currency.change, currency.name),
-            console.log(test),
+
+            maxName.set(currency.change, currency.name),
+            maxId.set(currency.change, currency.id),
+            console.log(maxId),
             
-            <Link key={currency.id} to={`/crypto/${currency.id}`}>
-            <div className="notification" style={green} hoverable>
-                {test.get(Math.max(...maxChange.values()))} {Math.max(...maxChange.values())}%
-            </div>
-            </Link>
-            // <div className="notification" style={red} hoverable>
-            //     {test.get(Math.min(...maxChange.values()))} {Math.min(...maxChange.values())}%
-            // </div>
-        ))} 
+            currenciesIncrease = Math.max(...maxChange.values()),
+            console.log("currencies Icrease " + currenciesIncrease),
     
+            currenciesIncreaseName = maxName.get(Math.max(...maxChange.values())),
+            console.log("currencies Increase Name " + currenciesIncreaseName),
+
+            currenciesPos = maxId.get(Math.max(...maxChange.values())),
+            console.log("test1 " + currenciesPos),
+            console.log("test2 " + currency.id)
+        ))} 
+
+       
+             {/* <div className="notification" style={red} hoverable>
+                 {test.get(Math.min(...maxChange.values()))} {Math.min(...maxChange.values())}%
+             </div> */}
+
+
+            <Link key={currenciesPos} to={`/crypto/${currenciesPos}`}>
+                <div className="notification" style={green} hoverable>
+                    {currenciesIncreaseName} {currenciesIncrease}%
+                </div>
+            </Link>
 
 
     </>
