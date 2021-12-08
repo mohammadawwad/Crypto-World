@@ -18,7 +18,7 @@ export const Homepage = () => {
         <>
         <Notifications />
         <Title level={2} className="heading">Global Crypto Stats</Title>
-        <Row>
+        <Row style={{width: '85%'}}>
             {/* Millify simplifies the numbers */}
             <Col span={12}><Statistic title="Total Crypto Currencies" value={globalStats.total}/></Col>
             <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)}/></Col>
@@ -27,13 +27,13 @@ export const Homepage = () => {
             <Col span={12}><Statistic title="Total 24hr Volume" value={millify(globalStats.total24hVolume)}/></Col>
         </Row>
 
-        <div className="home-heading-container">
+        <div className="home-heading-container" >
             <Title level={2} className="home-title">Top 10 Crypto Currencies in the World</Title>
             <Title level={3} className="home-title"><Link to="/cryptocurrencies">Show More</Link></Title>
         </div>
         <Cryptocurrencies simplified/>
 
-        <div className="home-heading-container">
+        <div className="home-heading-container" >
             <Title level={2} className="home-title">Latest Crypto News</Title>
             <Title level={3} className="home-title"><Link to="/news">Show More</Link></Title>
         </div>

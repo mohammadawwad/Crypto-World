@@ -40,7 +40,8 @@ const App = () => {
                 <div className="footer">
                         <Typography.Title level={5} style={{color: 'white', textAlign: 'center'}}>
                             Crypto World <br/>
-                            All Rights Reserved
+                            All Rights Reserved <br/>
+                            Mohammad Awwad
                         </Typography.Title>
                         <Space>
                             <Link to="/">Home</Link>
