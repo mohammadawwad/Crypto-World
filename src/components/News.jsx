@@ -64,6 +64,7 @@ export const News = ({simplified}) => {
                 ))}
             </Row>
         </div>
+        
     )
 }
 

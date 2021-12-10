@@ -38,6 +38,10 @@ export const Homepage = () => {
             <Title level={3} className="home-title"><Link to="/news">Show More</Link></Title>
         </div>
         <News simplified/>
+
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2057252548845295"
+     crossorigin="anonymous"></script>
         </>
     )
 }

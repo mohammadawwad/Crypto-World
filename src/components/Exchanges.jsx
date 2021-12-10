@@ -28,10 +28,11 @@ const Exchanges = () => {
           <Col span={24}>
             <Collapse>
               <Panel
-                key={exchange.id}
+                key={exchange.rank}
                 showArrow={false}
                 header={(
-                  <Row key={exchange.id}>
+                  <Row key={exchange.rank}>
+                    {console.log(exchange.rank)}
                     <Col span={6}>
                       <Text><strong>{exchange.rank}.</strong></Text>
                       <Avatar className="exchange-image" src={exchange.iconUrl} />
@@ -41,7 +42,7 @@ const Exchanges = () => {
                     <Col span={6}>{millify(exchange.numberOfMarkets)}</Col>
                     <Col span={6}>{millify(exchange.marketShare)}%</Col>
                   </Row>
-                  )}
+                )}
               >
                 {HTMLReactParser(exchange.description || '')}
               </Panel>
