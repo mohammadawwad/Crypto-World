@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
-
+//very important dont forget about this
 //need to switch to v2 of the api already changed the key and base url need to change the rest
 const cryptoApiHeaders = {
     'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
