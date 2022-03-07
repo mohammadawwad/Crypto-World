@@ -1,4 +1,5 @@
-
+### `Crypto World`
+A web application that shows you all sorts of statistical data related to the crypto market and exchanges
 
 ### `To run the app: npm start`
 
