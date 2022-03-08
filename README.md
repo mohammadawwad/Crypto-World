@@ -1,5 +1,5 @@
 ### `Crypto World`
-A web application that shows you all sorts of statistical data related to the crypto market and exchanges
+A web application that shows you all sorts of statistical data related to the crypto market and exchanges, as well as the latest related news articles.
 
 ### `To run the app: npm start`
 
